@@ -17,9 +17,10 @@ def count_words(filename):
 
 def print_dict_items(dictionary):
 	""" Print key:value pairs of a dictionary."""
-	pass
+	for word, count in dictionary.items():
+		print("{} {}".format(word, count))
+	
 
 
 # tests
-print(count_words('test.txt'))
-#count_words('twain.txt')
+print_dict_items(count_words('test.txt'))
