@@ -1,10 +1,11 @@
-import sys
+import sys, collections
 
 def count_words(filename):
 	""" Counts space separated words in a text file"""
 	file = open(filename)
 
-	count_dict = {}
+	# Initialize empty Counter object
+	count_dict = collections.Counter()
 
 	for line in file:
 		line = line.rstrip()
@@ -16,7 +17,8 @@ def count_words(filename):
 			word = make_alpha(word)
 
 			# add to dictionary or increment
-			count_dict[word.lower()] = count_dict.get(word.lower(), 0) + 1
+			#count_dict[word.lower()] = count_dict.get(word.lower(), 0) + 1
+			count_dict[word.lower()] += 1
 
 	return count_dict
 
