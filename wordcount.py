@@ -1,3 +1,5 @@
+import sys
+
 def count_words(filename):
 	""" Counts space separated words in a text file"""
 	file = open(filename)
@@ -13,11 +15,8 @@ def count_words(filename):
 			# make sure the word is letters only
 			word = make_alpha(word)
 
-			# deal with upper and lower case here
-			
-
 			# add to dictionary or increment
-			count_dict[word] = count_dict.get(word, 0) + 1
+			count_dict[word.lower()] = count_dict.get(word.lower(), 0) + 1
 
 	return count_dict
 
@@ -42,5 +41,4 @@ def make_alpha(word_candidate):
 
 
 # tests
-#print_dict_items(count_words('test.txt'))
-print(make_alpha('bob'))
+print_dict_items(count_words(sys.argv[1]))
